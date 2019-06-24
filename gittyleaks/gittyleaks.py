@@ -11,7 +11,7 @@ import argparse
 class GittyLeak():
 
     def __init__(self, kwargs=None):
-        self.keywords = ['api', 'username', 'user', 'uname', 'pw', 'password',
+        self.keywords = ['username', 'pw', 'password',
                          'pass', 'credentials', 'credential', 'login',
                          'token', 'secret']
 
@@ -89,10 +89,10 @@ class GittyLeak():
         # `git ls-files | grep -v .html` | cat', shell=True).decode('utf8')
         except sh.ErrorReturnCode_1:
             return ''
-	except as e:
-		print('encoding error at revision: ', revision)
-		print(e)
-		return ''
+        except Nonetype as e:
+            print('encoding error at revision: ', revision)
+            print(e)
+            return ''
 
     def get_word_matches(self):
         # git grep simple word matches (python processing follows)
