@@ -89,7 +89,7 @@ class GittyLeak():
         # `git ls-files | grep -v .html` | cat', shell=True).decode('utf8')
         except sh.ErrorReturnCode_1:
             return ''
-        except Nonetype as e:
+        except NoneType as e:
             print('encoding error at revision: ', revision)
             print(e)
             return ''
